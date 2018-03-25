@@ -5,8 +5,8 @@ header('Content-Type: application/json');
 
 require_once "vendor/autoload.php";
 
-define("DEFAULT_URL","https://test-853ec.firebaseio.com/");
-define("DEFAULT_TOKEN","D7o4sRUWrvkQB0Ovxlb6AT2LJk8FNM0hZzQIhHbL");
+define("DEFAULT_URL","https://YOUR_PROJECT_ID.firebaseio.com/");
+define("DEFAULT_TOKEN","YOUR_DB_SECRET");
 
 // $_POST['age']、$_POST['job']をエラーを出さないように文字列として安全に展開する
 foreach (['tag', 'trigger', 'value', 'id'] as $v) {
@@ -34,11 +34,6 @@ if (!isset($error)) {
 
   // set
   $firebase->set("/mesh/{$tag}",$mesh_status);
-
-  // get
-  // $mesh = $firebase->get("/mesh");
-
-  // echo $mesh;
 
   // 正常時は 「200 OK」 で {"data":"24歳、学生です"} のように返す
   $data = "{$tag}タグが{$trigger}されました。";
